@@ -4,9 +4,11 @@ Code samples and guidance demonstrating how to ingest data into an [Azure Operat
 
 ## Getting Started
 
+Read this README then explore the samples directory: [samples](samples).
+
 ### Prerequisites
 
-For all of the samples, you will need:
+For all of the samples, you need:
 
 - TODO
 - An Azure Entra identity to use to run the sample. The identity must have at least the _Key Vault Secrets User_ role on the managed key vault associated with your data product.
@@ -24,11 +26,11 @@ Sample-specific prerequisites are listed in the code or README files for each sa
 
 The available samples are:
 
-- Azure CLI: [samples\az-cli-bash-aoi-ingestion.sh](samples\az-cli-bash-aoi-ingestion.sh)
+- Azure CLI: [samples/az-cli-bash-aoi-ingestion.sh](samples/az-cli-aoi-ingestion.sh)
 - AzCopy:
-  - Upload from local directory: [samples\azcopy-aoi-ingestion-from-local.sh](samples\azcopy-aoi-ingestion-from-local.sh)
-  - Copy from an Azure Storage Account: [samples\azcopy-aoi-ingestion-from-storage-account.sh](samples\azcopy-aoi-ingestion-from-storage-account.sh)
-- Python, using Azure SDK for Python: [samples\python-bash-aoi-ingestion.sh](samples\python-aoi-ingestion.py)
+  - Upload from local directory: [samples/azcopy-aoi-ingestion-from-local.sh](samples/azcopy-aoi-ingestion-from-local.sh)
+  - Copy from an Azure Storage Account: [samples/azcopy-aoi-ingestion-from-storage-account.sh](samples/azcopy-aoi-ingestion-from-storage-account.sh)
+- Python, using Azure SDK for Python: [samples/python-aoi-ingestion.sh](samples/python-aoi-ingestion.py)
 
 Most samples require the same parameters:
 
@@ -50,6 +52,6 @@ All samples follow three steps:
 
 (Any additional resources or related projects)
 
-- Link to supporting information
-- Link to similar sample
+- TODO
+- To ingest EDRs from an Affirmed MCC, or to ingest files from an SFTP server, you can use the [Azure Operator Insights Ingestion Agent](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-agent-overview).
 - ...
