@@ -45,7 +45,7 @@ All samples follow three steps:
 
 1. Find the name of the managed key vault associated with the data product, by querying the data product to find the data product's unique ID
 2. Authenticate with the managed key vault and fetch the secret containing the ingestion SAS URL for the data product.
-3. Using the ingestion SAS URL, upload data to the ingestion endpoint of the data product.
+3. Using the ingestion SAS URL or SAS token, upload data to the ingestion endpoint of the data product.
 
 
 ## Resources
