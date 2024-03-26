@@ -30,7 +30,7 @@ The available samples are:
 - AzCopy:
   - Upload from local directory: [samples/azcopy-aoi-ingestion-from-local.sh](samples/azcopy-aoi-ingestion-from-local.sh)
   - Copy from an Azure Storage Account: [samples/azcopy-aoi-ingestion-from-storage-account.sh](samples/azcopy-aoi-ingestion-from-storage-account.sh)
-- Python, using Azure SDK for Python: [samples/python-aoi-ingestion.sh](samples/python-aoi-ingestion.py)
+- Python, using Azure SDK for Python: [samples/python-aoi-ingestion.py](samples/python-aoi-ingestion.py)
 
 Most samples require the same parameters:
 
