@@ -2,6 +2,16 @@
 
 Code samples and guidance demonstrating how to ingest data into an [Azure Operator Insights data product](https://learn.microsoft.com/en-us/azure/operator-insights/).
 
+Azure Operator Insights offers a range of options for ingesting data into data products:
+
+- The [Azure Operator Insights Ingestion Agent](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-agent-overview), which runs on-prem or on an Azure VM. The agent can consume data from different sources and upload the data to an Azure Operator Insights data product. The agent currently supports ingestion by:
+  - Pulling data from an SFTP server
+  - Terminating a TCP stream of enhanced data records (EDRs) from the Affirmed MCC.
+- Other Azure services and tools. A variety of tools can be used to upload data to an Azure Operator Insights data product. For example:
+  - AzCopy is a simple tool for uploading batches of data from a variety of local or cloud storage locations.
+  - Azure Data Factory allows you to define more complicated pipelines to process the data before uploading to the data product.  (\<TODO insert Learn link when published>)
+- Build your own ingestion, using the code samples in this repository as a starting point.
+
 ## Getting Started
 
 Read this README then explore the samples directory: [samples](samples).
@@ -10,17 +20,18 @@ Read this README then explore the samples directory: [samples](samples).
 
 For all of the samples, you need:
 
-- TODO
-- An Azure Entra identity to use to run the sample. The identity must have at least the _Key Vault Secrets User_ role on the managed key vault associated with your data product.
+- An Azure Operator Insights Data Product
+- An Azure Entra identity to use to run the sample. The identity must have the following roles:
+  - _Reader_ role on your data product
+  - _Key Vault Secrets User_ role on the managed key vault associated with your data product.
 
-Sample-specific prerequisites are listed in the code or README files for each sample.
+Additional sample-specific prerequisites are listed in the code or README files for each sample.
 
 ### Quickstart
 
 1. `git clone https://github.com/Azure-Samples/operator-insights-data-ingestion.git`
 2. `cd operator-insights-data-ingestion/samples`
-3. Choose a sample, add the required parameters to work with your data product and data source, and run the sample.
-
+3. Choose a sample, update the required parameters to work with your data product and data source, and run the sample.
 
 ## Samples
 
@@ -47,11 +58,7 @@ All samples follow three steps:
 2. Authenticate with the managed key vault and fetch the secret containing the ingestion SAS URL for the data product.
 3. Using the ingestion SAS URL or SAS token, upload data to the ingestion endpoint of the data product.
 
-
 ## Resources
 
-(Any additional resources or related projects)
-
-- TODO
 - To ingest EDRs from an Affirmed MCC, or to ingest files from an SFTP server, you can use the [Azure Operator Insights Ingestion Agent](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-agent-overview).
-- ...
+
