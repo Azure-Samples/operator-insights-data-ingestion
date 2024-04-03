@@ -2,9 +2,9 @@
 
 ## When to use Azure Databricks to ingest in to Azure Operator Insights
 
-Azure databricks provides a convenient solution for ingesting from a variety of data sources directly in to an [Azure Operator Insights data product](https://learn.microsoft.com/en-us/azure/operator-insights/).
+Azure Databricks provides a convenient solution for ingesting from a variety of data sources directly in to an [Azure Operator Insights data product](https://learn.microsoft.com/en-us/azure/operator-insights/).
 
-Using Databricks is ideal if:
+Using Databricks is recommended if:
 
 - The data source is supported by Azure Databricks
   - For information about connecting to other supported data sources, see [Azure Databricks documentation/Connect to data sources (MS Learn)](https://learn.microsoft.com/en-us/azure/databricks/connect/)
