@@ -2,14 +2,16 @@
 
 ## When to use Azure Databricks to ingest in to Azure Operator Insights
 
-Azure databricks provides a convenient ingestion solution for 
+Azure databricks provides a convenient solution for ingesting from a variety of data sources directly in to an [Azure Operator Insights data product](https://learn.microsoft.com/en-us/azure/operator-insights/).
+
+Using Databricks is ideal if:
 
 - The data source is supported by Azure Databricks
-  - The provided example code ingests from an Azure storage account
   - For information about connecting to other supported data sources, see [Azure Databricks documentation/Connect to data sources (MS Learn)](https://learn.microsoft.com/en-us/azure/databricks/connect/)
 - You require continuous ingestion
 - The data you would like to ingest contains a transaction log (E.g. Delta file format)
   - In this scenario, your databricks ingestion workflow can convert to a file format that Azure Operator Insights supports
+- You wish to apply transformations or filtering to your data before it is ingested to your data product
 
 ### Authentication to Azure Operator Insights
 

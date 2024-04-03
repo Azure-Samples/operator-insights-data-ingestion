@@ -61,4 +61,3 @@ All samples follow three steps:
 ## Resources
 
 - To ingest EDRs from an Affirmed MCC, or to ingest files from an SFTP server, you can use the [Azure Operator Insights Ingestion Agent](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-agent-overview).
-
