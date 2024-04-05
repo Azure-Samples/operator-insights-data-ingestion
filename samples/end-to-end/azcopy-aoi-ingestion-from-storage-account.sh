@@ -23,7 +23,7 @@ export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
 resourceGroup="myResourceGroup"
 dataProductName="myDataProduct"
 dataType="myDataType"
-sourceDataUrl="https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory"
+sourceDataUrl="https://mysourceaccount.blob.core.windows.net/myContainer/myBlobDirectory"
 
 # Call the script that sets environment variables for the ingestion parameters.
 source ../snippets/az-cli-set-ingestion-params.sh "$resourceGroup" "$dataProductName"
