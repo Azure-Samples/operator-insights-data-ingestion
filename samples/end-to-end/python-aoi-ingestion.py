@@ -28,7 +28,7 @@ from azure.mgmt.networkanalytics import NetworkAnalyticsMgmtClient
 def main():
     # Set variables for resource group, data product name, data type, and the local filepath of the files to upload.
     # Replace these values with your own.
-    rg = "myResourceGroup"
+    resource_group = "myResourceGroup"
     data_product_name = "myDataProduct"
     data_type = "myDataType"
     source_data_file_path = "path/to/local/dir"
@@ -40,7 +40,7 @@ def main():
     credential = DefaultAzureCredential()
     client = NetworkAnalyticsMgmtClient(credential=credential, subscription_id=sub_id)
     ingestion_url = client.data_products.get(
-        rg, data_product_name
+        resource_group, data_product_name
     ).properties.consumption_endpoints.ingestion_url
 
     # Break out the data product ID from the ingestion URL.
