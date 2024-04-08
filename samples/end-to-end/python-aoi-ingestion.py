@@ -66,6 +66,7 @@ def main():
     )
     container_client = blob_service_client.get_container_client(data_type)
     destination_path = f"testdata/date-{datetime.datetime.now().strftime('%d-%m-%Y')}"
+    print(f"Uploading files from local path {source_data_file_path} to {ingestion_url}/{data_type}/{destination_path}")
 
     for root, _, files in os.walk(source_data_file_path):
         for file in files:
