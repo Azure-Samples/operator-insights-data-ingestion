@@ -27,7 +27,7 @@ After the secret scope is created, _copy the SAS URL from the Data Product's Key
 
   1. Find the resource group which contains the managed Key Vault for the data product. This Key Vault contains the SAS URL for ingesting files in to Azure Operator Insights.
       - The resource group has a naming convention of `<data-product-name>-HostedResources-<unique-hex-string>`
-      - This can be found in the azure portal by searching for your data product name
+      - This can be found in the Azure portal by searching for your data product name
   1. Open the managed key vault within the resource group and navigate to the `Secrets` tab
       - The key vault has a naming convention of `aoi-dp<unique-id>-kv`
   1. Find the secret named `input-storage-sas`

@@ -1,12 +1,12 @@
 # Overview
 
-The sample notebook is used to create a Databricks job that reads Delta files from an Azure Storage Account container and ingests them in to Azure Operator Insights
+The sample notebook is used to create a Databricks job that reads Delta files from an Azure Storage Account container, filters and transforms them to CSV, and ingests them in to Azure Operator Insights.
 
 ## How to use the sample notebook
 
-[The Sample ingestion Notebook](./databricks-aoi-ingestion.py) is intended to be a reference to be used along side the [Azure Databricks documentation (MS Learn)](https://learn.microsoft.com/en-us/azure/databricks/) to create an ingestion solution which fits your requirements.
+[The sample ingestion notebook](./databricks-aoi-ingestion.py) is a reference to be used along side the [Azure Databricks documentation (MS Learn)](https://learn.microsoft.com/en-us/azure/databricks/) to create an ingestion solution which fits your requirements.
 
-Details of the environment in which the sample notebook is intended to run in are provided below
+Details of the environment in which the sample notebook is intended to run are provided below
 
 ## Diagram
 
