@@ -79,19 +79,12 @@ CHECKPOINT_CONTAINER_NAME = "checkpoint-container"
 # The file path in the container where checkpoint files will be written
 CHECKPOINT_FILE_PATH = "checkpoint/file/path/example"
 # The name of the Azure storage account within the Data Product where the data will be uploaded to for processing by Azure Operator Insights. This can be
-# found in the Azure portal, on the 'Overview' page of the Data Product resource. The 'Ingestion URL' field contains the name of the storage account in the form:
-# https://<AOI_INGESTION_STORAGE_ACCOUNT_NAME>.blob.core.vwindows.net
+# found as part of the SAS URL in the form: https://<AOI_INGESTION_STORAGE_ACCOUNT_NAME>.blob.core.windows.net/?sv=...
 AOI_INGESTION_STORAGE_ACCOUNT_NAME = "aoiingestiondp000000"
 # The container within the Azure Operator Insights where files will be uploaded. This must be set to exactly as specified in your Data Product's documentation
 AOI_INGESTION_CONTAINER_NAME = "ingestion-container-name"
 # The top level folder within the ingestion container where files will be uploaded. This must be set to exactly as specified in your Data Product's documentation
 AOI_INGESTION_TOP_LEVEL_FOLDER = "ingestion-top-level-folder"
-# A unique identifier for the site id where the files originate from which determines the file path of the uploaded files.
-# Any URL reserved characters must be percent-encoded
-AOI_INGESTION_SITE_ID = "siteid-placeholder"
-# A unique identifier for the source where the files originate from which determines the file path of the uploaded files.
-# Any URL reserved characters must be percent-encoded
-AOI_INGESTION_SOURCE_NAME = "source-placeholder"
 # The name of the Azure Key Vault-backed secret scope created in the Azure Databricks workspace
 SECRET_SCOPE_NAME = "secret_scope_name"
 # The name of the secret in the 'Access Policy' Key Vault which contains the value of the ingestion SAS URL
@@ -197,7 +190,7 @@ bad_records_storage_path = f"abfss://{BAD_RECORDS_CONTAINER_NAME}@{CHECKPOINT_AN
 checkpoint_storage_path = f"abfss://{CHECKPOINT_CONTAINER_NAME}@{CHECKPOINT_AND_BAD_RECORDS_STORAGE_ACCOUNT_NAME}.dfs.core.windows.net/{CHECKPOINT_FILE_PATH}"
 
 # Set up output file path
-aoi_ingestion_storage_path = f"abfss://{AOI_INGESTION_CONTAINER_NAME}@{AOI_INGESTION_STORAGE_ACCOUNT_NAME}.dfs.core.windows.net/{AOI_INGESTION_TOP_LEVEL_FOLDER}/{AOI_INGESTION_SITE_ID}/{AOI_INGESTION_SOURCE_NAME}"
+aoi_ingestion_storage_path = f"abfss://{AOI_INGESTION_CONTAINER_NAME}@{AOI_INGESTION_STORAGE_ACCOUNT_NAME}.dfs.core.windows.net/{AOI_INGESTION_TOP_LEVEL_FOLDER}"
 
 logger.info(
     f"""
