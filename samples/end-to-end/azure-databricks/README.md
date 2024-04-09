@@ -50,7 +50,7 @@ Details of the environment in which the sample notebook is intended to run are p
 
 ### Diagram
 
-The diagram shows 
+The diagram shows which Azure resources are deployed and the interaction between them for the sample ingestion workflow
 
 ![Azure networking diagram for sample Databricks ingestion workflow](./images/databricks_ingestion_sample_diagram.png)
 
