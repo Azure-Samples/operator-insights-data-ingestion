@@ -51,8 +51,6 @@ logger.info("Job started")
 
 # COMMAND ----------
 
-
-
 # MAGIC %md
 # MAGIC For simplicity, the variables in the following section are hard coded here. The recommended long term approach is to pass parameters to the Databricks job task
 # MAGIC using the method described in [Pass parameters to an Azure Databricks job task (MS Learn)](https://learn.microsoft.com/en-us/azure/databricks/workflows/jobs/create-run-jobs#--pass-parameters-to-an-azure-databricks-job-task)
@@ -78,9 +76,6 @@ BAD_RECORDS_FILE_PATH = "bad_records/file/path/example"
 CHECKPOINT_CONTAINER_NAME = "checkpoint-container"
 # The file path in the container where checkpoint files will be written
 CHECKPOINT_FILE_PATH = "checkpoint/file/path/example"
-# The name of the Azure storage account within the Data Product where the data will be uploaded to for processing by Azure Operator Insights. This can be
-# found as part of the SAS URL in the form: https://<AOI_INGESTION_STORAGE_ACCOUNT_NAME>.blob.core.windows.net/?sv=...
-AOI_INGESTION_STORAGE_ACCOUNT_NAME = "aoiingestiondp000000"
 # The container within the Azure Operator Insights where files will be uploaded. This must be set to exactly as specified in your Data Product's documentation
 AOI_INGESTION_CONTAINER_NAME = "ingestion-container-name"
 # The top level folder within the ingestion container where files will be uploaded. This must be set to exactly as specified in your Data Product's documentation
@@ -105,9 +100,12 @@ source_sp_secret = dbutils.secrets.get(SECRET_SCOPE_NAME, SECRET_NAME_CLIENT_SEC
 source_sp_tenant_id = dbutils.secrets.get(SECRET_SCOPE_NAME, SECRET_NAME_TENANT_ID)
 input_auth_endpoint = f"https://login.microsoftonline.com/{source_sp_tenant_id}/oauth2/token"
 # Use SAS token to access the AOI input storage account, where we write out the output files.
-# The AOI DP key vault provides a full SAS URL, in format “https://<account_name>.blob.core.windows.net?<sas_token>”. Extract the SAS token for use in authentication.
+# The AOI DP key vault provides a full SAS URL, in format “https://<storage_account_name>.blob.core.windows.net?<sas_token>”.
 aoi_ingestion_sas_url = dbutils.secrets.get(SECRET_SCOPE_NAME, SECRET_NAME_SAS_URL)
+# Extract the SAS token from the SAS URL.
 aoi_ingestion_sas_token = aoi_ingestion_sas_url.split("?")[1]
+# Extract the ingestion storage account name from the SAS URL.
+aoi_ingestion_storage_account_name = aoi_ingestion_sas_url.removeprefix("https://").split(".")[0]
 
 # COMMAND ----------
 
@@ -169,15 +167,15 @@ spark.conf.set(
 
 # Auth for the output storage account (SAS token).
 spark.conf.set(
-    f"fs.azure.account.auth.type.{AOI_INGESTION_STORAGE_ACCOUNT_NAME}.dfs.core.windows.net",
+    f"fs.azure.account.auth.type.{aoi_ingestion_storage_account_name}.dfs.core.windows.net",
     "SAS",
 )
 spark.conf.set(
-    f"fs.azure.sas.token.provider.type.{AOI_INGESTION_STORAGE_ACCOUNT_NAME}.dfs.core.windows.net",
+    f"fs.azure.sas.token.provider.type.{aoi_ingestion_storage_account_name}.dfs.core.windows.net",
     "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider",
 )
 spark.conf.set(
-    f"fs.azure.sas.fixed.token.{AOI_INGESTION_STORAGE_ACCOUNT_NAME}.dfs.core.windows.net",
+    f"fs.azure.sas.fixed.token.{aoi_ingestion_storage_account_name}.dfs.core.windows.net",
     aoi_ingestion_sas_token,
 )
 
@@ -190,7 +188,7 @@ bad_records_storage_path = f"abfss://{BAD_RECORDS_CONTAINER_NAME}@{CHECKPOINT_AN
 checkpoint_storage_path = f"abfss://{CHECKPOINT_CONTAINER_NAME}@{CHECKPOINT_AND_BAD_RECORDS_STORAGE_ACCOUNT_NAME}.dfs.core.windows.net/{CHECKPOINT_FILE_PATH}"
 
 # Set up output file path
-aoi_ingestion_storage_path = f"abfss://{AOI_INGESTION_CONTAINER_NAME}@{AOI_INGESTION_STORAGE_ACCOUNT_NAME}.dfs.core.windows.net/{AOI_INGESTION_TOP_LEVEL_FOLDER}"
+aoi_ingestion_storage_path = f"abfss://{AOI_INGESTION_CONTAINER_NAME}@{aoi_ingestion_storage_account_name}.dfs.core.windows.net/{AOI_INGESTION_TOP_LEVEL_FOLDER}"
 
 logger.info(
     f"""
