@@ -18,14 +18,14 @@ Read this README then explore the samples directory: [samples](samples). When yo
 
 ### Prerequisites
 
-For all of the samples, you need:
+For most of the samples, you need:
 
 - An Azure Operator Insights Data Product
 - A Microsoft Entra identity to use to run the sample. The identity must have the following roles:
   - _Reader_ role on your data product
   - _Key Vault Secrets User_ role on the managed key vault associated with your data product.
 
-Additional sample-specific prerequisites are listed in the code or README files for each sample.
+Some samples have different prerequisites, which are listed in the code or README files for each sample (e.g. for [Azure Databricks](samples/end-to-end/azure-databricks/README.md)).
 
 ### Quickstart
 
@@ -43,13 +43,14 @@ Before using these samples as part of a production system, you should consider w
 
 ### End-to-end samples
 
-- Azure CLI: [samples/end-to-end/az-cli-aoi-ingestion.sh](samples/end-to-end/az-cli-aoi-ingestion.sh)
+- [Azure CLI](samples/end-to-end/az-cli-aoi-ingestion.sh)
 - AzCopy:
-  - Upload from local directory: [samples/end-to-end/azcopy-aoi-ingestion-from-local.sh](samples/end-to-end/azcopy-aoi-ingestion-from-local.sh)
-  - Copy from an Azure Storage Account: [samples/end-to-end/azcopy-aoi-ingestion-from-storage-account.sh](samples/end-to-end/azcopy-aoi-ingestion-from-storage-account.sh)
-- Python, using Azure SDK for Python: [samples/end-to-end/python-aoi-ingestion.py](samples/end-to-end/python-aoi-ingestion.py)
+  - [Upload from local directory](samples/end-to-end/azcopy-aoi-ingestion-from-local.sh)
+  - [Copy from an Azure Storage Account](samples/end-to-end/azcopy-aoi-ingestion-from-storage-account.sh)
+- [Python](samples/end-to-end/python-aoi-ingestion.py), using Azure SDK for Python
+- [Azure Databricks](samples/end-to-end/azure-databricks/README.md)
 
-All end-to-end samples follow three steps:
+Most end-to-end samples follow three steps:
 
 1. Find the name of the managed key vault associated with the data product, by querying the data product to find the data product's unique ID
 2. Authenticate with the managed key vault and fetch the secret containing the ingestion SAS URL for the data product.

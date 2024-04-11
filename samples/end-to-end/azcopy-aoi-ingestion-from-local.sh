@@ -7,7 +7,7 @@
 # To use the script, fill in the variables at the top of the script and run it from the command line.
 # 
 # Pre-requisites: 
-# - Log in to the Azure CLI ("az login") and set the subscription ("az account set --subscription <subscription>").
+# - Sign in to the Azure CLI ("az login") and set the subscription ("az account set --subscription <subscription>").
 # - Install the network-analytics Azure CLI extension: "az extension add --name network-analytics"
 # - Install the AzCopy tool and add the executable to your system path: https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10 
 

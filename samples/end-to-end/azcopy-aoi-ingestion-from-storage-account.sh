@@ -10,7 +10,7 @@
 # https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy-copy for examples.
 # 
 # Pre-requisites: 
-# - Log in to the Azure CLI ("az login") and set the subscription ("az account set --subscription <subscription>").
+# - Sign in to the Azure CLI ("az login") and set the subscription ("az account set --subscription <subscription>").
 # - Install the network-analytics Azure CLI extension: "az extension add --name network-analytics"
 # - Install the AzCopy tool and add the executable to your system path: https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10 
 

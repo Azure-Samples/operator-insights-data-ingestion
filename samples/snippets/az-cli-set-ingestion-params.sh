@@ -18,7 +18,7 @@
 # INGESTION_STORAGE_ACCOUNT_NAME.
 # 
 # Pre-requisites: 
-# - Log in to the Azure CLI ("az login") and set the subscription ("az account set --subscription <subscription>").
+# - Sign in to the Azure CLI ("az login") and set the subscription ("az account set --subscription <subscription>").
 # - Install the network-analytics Azure CLI extension: "az extension add --name network-analytics".
 
 set -euo pipefail

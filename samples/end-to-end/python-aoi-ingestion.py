@@ -14,7 +14,7 @@
 # Pre-requisites:
 # - Install a supported version of Python, at least 3.9: https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy
 # - Install the required Azure SDK libraries ("pip install azure-storage-blob azure-identity azure-keyvault-secrets azure-mgmt-networkanalytics")
-# - Log in to the Azure CLI ("az login").
+# - Sign in to the Azure CLI ("az login").
 # - Set the AZURE_SUBSCRIPTION_ID environment variable to your Azure subscription ID.
 
 import os

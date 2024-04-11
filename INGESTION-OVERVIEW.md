@@ -63,7 +63,7 @@ To ensure uninterrupted service, your ingestion solution should frequently retri
 
 Use your ingestion solution to upload sample data to the data product, and identify and fix any errors.
 
-Use [Data product resource logs](https://teams.microsoft.com/l/message/19:9ffef16c4cd94dc1bf0ed5fc0a4db784@thread.tacv2/1712829195326?tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47&groupId=e98b46ec-1a8b-47ed-a28a-82a242948a03&parentMessageId=1712828769303&teamName=Team%20Lighthouse%20(AIOps)&channelName=Help&createdTime=1712829195326) to look for errors uploading the data to the ingestion storage account, and errors processing the data after it is uploaded.
+Use [Data product resource logs](https://learn.microsoft.com/en-us/azure/operator-insights/monitor-operator-insights#resource-logs-for-data-products-overview-collection-and-analysis) to look for errors uploading the data to the ingestion storage account, and errors processing the data after it is uploaded.
 
 - Logs related to upload of data to the data product are in the `AOIStorage` table, with categories `Ingestion` and `IngestionDelete`.
 - Logs related to processing of uploaded data are in the `AOIDigestion` table, with category `Digestion`.
@@ -72,14 +72,14 @@ Once data has been successfully uploaded and processed, you can [explore the dat
 
 ### Implement extra function
 
-Once your basic ingestion solution is working, you can optionally implement extra function.
+Once your basic ingestion solution is working, you can implement extra function to make it suitable for production use.
 
 For example:
 
-- Add logging and metrics so you can monitor the performance of the ingestion solution.
+- Add logging and metrics so you can monitor the performance of the ingestion solution and debug issues.
 - Add retries in case of transient connection errors between the ingestion solution and the data source, or the data product.
-- Filter data before uploading to the data product.
-- Transform data before uploading to the data product, e.g. to remove personally identifiable information (PII).
+- Optionally, filter data before uploading to the data product.
+- Optionally, transform data before uploading to the data product, e.g. to remove personally identifiable information (PII).
 
 ## Hints and tips
 
