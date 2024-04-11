@@ -45,9 +45,9 @@ Now you can write your end-to-end ingestion solution.
 
 Ingestion solutions perform 5 main steps:
 
-1. **Obtain the data product ingestion URL:** Query the data product resource to obtain the ingestion URL, which contains the unique ID for the data product. The URL format is `https://aoiingestion1234abcd.blob.core.windows.net` where `1234abcd` represents the data product ID.
+1. **Obtain the data product ingestion URL:** Query the data product resource to obtain the ingestion URL, which contains the unique ID for the data product. The URL format is `https://aoiingestiondp123abc.blob.core.windows.net` where `dp123abc` represents the data product ID.
 2. **Identify the managed Key Vault:** Determine the name of the managed Key Vault associated with the data product. It follows the pattern `aoi-<dataProductId>-kv`, where `<dataProductId>` corresponds to the ID from step 1.
-3. **Retrieve the ingestion SAS URL:** Query the Key Vault identified in step 2 to get the ingestion SAS URL for the data product. This URL is the data product's ingestion URL, with a SAS token appended. For example, `https://aoiingestion1234abcd.blob.core.windows.net?sv=2021-12-02&ss=b&srt=co&spr=https,http&st=2024-02-16T20%3A18%3A02Z&se=2024-05-16T20%3A17%3A57Z&sp=rwdl&sig=<REDACTED>`
+3. **Retrieve the ingestion SAS URL:** Query the Key Vault identified in step 2 to get the ingestion SAS URL for the data product. This URL is the data product's ingestion URL, with a SAS token appended. For example, `https://aoiingestiondp123abc.blob.core.windows.net?sv=2021-12-02&ss=b&srt=co&spr=https,http&st=2024-02-16T20%3A18%3A02Z&se=2024-05-16T20%3A17%3A57Z&sp=rwdl&sig=<REDACTED>`
 4. **Read from the data source:** Collect the data to upload, as you planned in [Plan how to access the source data](#plan-how-to-access-the-source-data).
 5. **Upload data to the ingestion endpoint:** Use the SAS token obtained in step 3 to authenticate. The ingestion endpoint is an Azure Storage Account, so most methods of uploading data to an Azure Storage Account will also work with the data product ingestion endpoint. Make sure to upload the data to the correct Azure Storage Account container for the data type.
 
@@ -88,7 +88,7 @@ For example:
 - **Directory depth:** When uploading data files, ensure they are at least two directories deep within the ingestion storage account. For example, if you're uploading a file called `mydata.csv`, place it in a path like `{directory-name}/{sub-directory-name}/mydata.csv`.
 
 - **Blob storage vs data lake ingestion endpoints:**
-  - You have two options for the data product ingestion URL: one for the blob storage endpoint (e.g. `https://aoiingestion1234abcd.blob.core.windows.net`), and one for the data lake storage endpoint (e.g. `https://aoiingestion1234abcd.dfs.core.windows.net`).
+  - You have two options for the data product ingestion URL: one for the blob storage endpoint (e.g. `https://aoiingestiondp123abc.blob.core.windows.net`), and one for the data lake storage endpoint (e.g. `https://aoiingestiondp123abc.dfs.core.windows.net`).
   - Choose the endpoint that best suits your ingestion method. For example, AzCopy can use the blob storage endpoint, but Azure Databricks requires the data lake endpoint. To obtain the data lake endpoint URL, simply replace `blob` in the ingestion URL with `dfs`.
   - Use the appropriate API calls for the endpoint you have chosen:
     - [Azure Blob Storage REST API](https://learn.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api).

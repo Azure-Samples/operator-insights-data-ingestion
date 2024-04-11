@@ -31,8 +31,8 @@ dataProductName=$2
 ingestionUrl=$(az network-analytics data-product show --name "$dataProductName" --resource-group "$resourceGroup" --query consumptionEndpoints.ingestionUrl --output tsv)
 
 # Break out the data product ID from the ingestion URL.
-# If the ingestion URL is "https://aoiingestion1234abcd.blob.core.windows.net", then the data 
-# product ID is "1234abcd" and the storage account name is "aoiingestion1234abcd".
+# If the ingestion URL is "https://aoiingestiondp123abc.blob.core.windows.net", then the data 
+# product ID is "dp123abc" and the storage account name is "aoiingestiondp123abc".
 dataProductId=$(echo "$ingestionUrl" | sed -n 's/https:\/\/aoiingestion\(.*\).blob.core.windows.net/\1/p')
 
 # Use the data product ID to generate the name of the managed key vault

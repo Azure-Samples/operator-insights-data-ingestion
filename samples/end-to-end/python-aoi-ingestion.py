@@ -44,8 +44,8 @@ def main():
     ).properties.consumption_endpoints.ingestion_url
 
     # Break out the data product ID from the ingestion URL.
-    # If the ingestion URL is "https://aoiingestion1234abcd.blob.core.windows.net", then the data
-    # product ID is "1234abcd".
+    # If the ingestion URL is "https://aoiingestiondp123abc.blob.core.windows.net", then the data
+    # product ID is "dp123abc".
     data_product_id = ingestion_url.removeprefix("https://aoiingestion").removesuffix(
         ".blob.core.windows.net"
     )
