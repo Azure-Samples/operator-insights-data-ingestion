@@ -14,7 +14,7 @@ Azure Operator Insights offers a range of options for ingesting data into data p
 
 ## Getting Started
 
-Read this README then explore the samples directory: [samples](samples).
+Read this README then explore the samples directory: [samples](samples). When you want more in-depth guidance on implementing ingestion, read [INGESTION-OVERVIEW.md](INGESTION-OVERVIEW.md).
 
 ### Prerequisites
 

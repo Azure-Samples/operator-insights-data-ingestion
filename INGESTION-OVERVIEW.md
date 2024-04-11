@@ -2,6 +2,17 @@
 
 Data ingestion is a crucial process for any data product. Whether you’re dealing with real-time streams or batch uploads, a well-designed ingestion solution ensures smooth data flow. Understanding the steps involved in designing an ingestion solution will allow you to easily adapt the code samples in this repository, or build your own ingestion solution from scratch.
 
+In this article:
+
+- [Steps to implement ingestion for a data product](#steps-to-implement-ingestion-for-a-data-product)
+  - [Plan how to access the source data](#plan-how-to-access-the-source-data)
+  - [Determine requirements for uploaded data](#determine-requirements-for-uploaded-data)
+  - [Implement the upload code](#implement-the-upload-code)
+  - [Handle SAS URL rotation](#handle-sas-url-rotation)
+  - [Test the ingestion solution](#test-the-ingestion-solution)
+  - [Implement extra function](#implement-extra-function)
+- [Hints and tips](#hints-and-tips)
+
 ## Steps to implement ingestion for a data product
 
 ### Plan how to access the source data
