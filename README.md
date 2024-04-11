@@ -59,7 +59,6 @@ All end-to-end samples follow three steps:
 
 - Setup script: Use the Azure CLI to perform steps 1 and 2 above, saving the parameters as environment variables: [samples/snippets/az-cli-set-ingestion-params.sh](samples/snippets/az-cli-set-ingestion-params.sh)
 
-
 ### Common parameters
 
 Most samples require the same parameters:
@@ -70,8 +69,6 @@ Most samples require the same parameters:
 - `sourceDataFilePath`: the path to a local directory containing the files you want to upload to the data product
 
 All samples must authenticate with the managed key vault that is associated with the data product. This authentication is handled differently depending on the sample.
-
-
 
 ## Resources
 
