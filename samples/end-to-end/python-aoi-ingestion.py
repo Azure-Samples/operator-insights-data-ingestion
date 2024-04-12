@@ -2,7 +2,7 @@
 # Licensed under the MIT License.
 
 # This is an example Python script that demonstrates how to upload data to an Azure Operator Insights
-# data product using the Azure SDK.
+# Data Product using the Azure SDK.
 # https://learn.microsoft.com/en-us/azure/developer/python/sdk/azure-sdk-overview
 # To use the script, fill in the variables at the top of the script and run it from the command line.
 # e.g `python3.9 python-aoi-ingestion.py`
@@ -26,7 +26,7 @@ from azure.mgmt.networkanalytics import NetworkAnalyticsMgmtClient
 
 
 def main():
-    # Set variables for resource group, data product name, data type, and the local filepath of the files to upload.
+    # Set variables for resource group, Data Product name, data type, and the local filepath of the files to upload.
     # Replace these values with your own.
     resource_group = "myResourceGroup"
     data_product_name = "myDataProduct"
@@ -43,14 +43,14 @@ def main():
         resource_group, data_product_name
     ).properties.consumption_endpoints.ingestion_url
 
-    # Break out the data product ID from the ingestion URL.
+    # Break out the Data Product ID from the ingestion URL.
     # If the ingestion URL is "https://aoiingestiondp123abc.blob.core.windows.net", then the data
     # product ID is "dp123abc".
     data_product_id = ingestion_url.removeprefix("https://aoiingestion").removesuffix(
         ".blob.core.windows.net"
     )
 
-    # Use the data product ID to generate the URL of the managed key vault
+    # Use the Data Product ID to generate the URL of the managed key vault
     key_vault_url = f"https://aoi-{data_product_id}-kv.vault.azure.net/"
 
     # Fetch the SAS URL from the key vault using the Key Vault Secret client library, and extract the

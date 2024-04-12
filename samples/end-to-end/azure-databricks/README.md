@@ -2,7 +2,7 @@
 
 ## When to use Azure Databricks to ingest in to Azure Operator Insights
 
-Azure Databricks provides a convenient solution for ingesting from a variety of data sources directly in to an [Azure Operator Insights data product](https://learn.microsoft.com/en-us/azure/operator-insights/).
+Azure Databricks provides a convenient solution for ingesting from a variety of data sources directly in to an [Azure Operator Insights Data Product](https://learn.microsoft.com/en-us/azure/operator-insights/).
 
 Using Databricks is recommended if:
 
@@ -11,7 +11,7 @@ Using Databricks is recommended if:
 - You require continuous ingestion
 - The data you would like to ingest contains a transaction log (E.g. Delta file format)
   - In this scenario, your databricks ingestion workflow can convert to a file format that Azure Operator Insights supports
-- You wish to apply transformations or filtering to your data before it is ingested to your data product
+- You wish to apply transformations or filtering to your data before it is ingested to your Data Product
 
 ## Ingestion sample notebook
 
@@ -59,9 +59,9 @@ After the secret scope is created, _copy the SAS URL from the Data Product's Key
 
 #### How to copy the ingestion SAS URL to the 'Access policy' Key Vault
 
-  1. Find the resource group which contains the managed Key Vault for the data product. This Key Vault contains the SAS URL for ingesting files in to Azure Operator Insights.
+  1. Find the resource group which contains the managed Key Vault for the Data Product. This Key Vault contains the SAS URL for ingesting files in to Azure Operator Insights.
       - The resource group has a naming convention of `<data-product-name>-HostedResources-<unique-hex-string>`
-      - This can be found in the Azure portal by searching for your data product name
+      - This can be found in the Azure portal by searching for your Data Product name
   1. Open the managed Key Vault within the resource group and navigate to the `Secrets` tab
       - The Key Vault has a naming convention of `aoi-dp<unique-id>-kv`
   1. Find the secret named `input-storage-sas`

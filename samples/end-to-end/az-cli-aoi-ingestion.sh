@@ -3,7 +3,7 @@
 # Licensed under the MIT License.
 
 # This is an example bash script that demonstrates how to upload data to an Azure Operator Insights 
-# data product using the Azure CLI.
+# Data Product using the Azure CLI.
 # To use the script, fill in the variables at the top of the script and run it from the command line.
 #
 # Pre-requisites: 
@@ -12,7 +12,7 @@
 
 set -euo pipefail
 
-# Set variables for resource group, data product name, data type, and the local filepath of the files to upload.
+# Set variables for resource group, Data Product name, data type, and the local filepath of the files to upload.
 # Replace these values with your own.
 resourceGroup="myResourceGroup"
 dataProductName="myDataProduct"

@@ -3,7 +3,7 @@
 # Licensed under the MIT License.
 
 # This is an example bash script that demonstrates how to copy data from an Azure Storage Account to
-# an Azure Operator Insights data product using the Azure CLI and the AzCopy tool.
+# an Azure Operator Insights Data Product using the Azure CLI and the AzCopy tool.
 # To use the script, fill in the variables at the top of the script and run it from the command line.
 # 
 # AzCopy can also copy data from other sources, such as Amazon Web Services S3 or Google Cloud Storage. See 
@@ -17,7 +17,7 @@
 set -euo pipefail
 export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
 
-# Set variables for resource group, data product name, data type, and the URL of the files in the source
+# Set variables for resource group, Data Product name, data type, and the URL of the files in the source
 # Storage Account (including container and directory).
 # Replace these values with your own.
 resourceGroup="myResourceGroup"
