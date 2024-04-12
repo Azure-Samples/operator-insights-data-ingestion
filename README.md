@@ -4,7 +4,7 @@ Code samples and guidance demonstrating how to ingest data into an [Azure Operat
 
 Azure Operator Insights offers a range of options for ingesting data into Data Products:
 
-- The [Azure Operator Insights Ingestion Agent](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-agent-overview), which runs on-prem or on an Azure VM. The agent can consume data from different sources and upload the data to an Azure Operator Insights Data Product. The agent currently supports ingestion by:
+- The [Azure Operator Insights Ingestion Agent](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-agent-overview), which runs on-premises or on an Azure VM. The agent can consume data from different sources and upload the data to an Azure Operator Insights Data Product. The agent currently supports ingestion by:
   - Pulling data from an SFTP server
   - Terminating a TCP stream of enhanced data records (EDRs) from the Affirmed MCC.
 - Other Azure services and tools. A variety of tools can be used to upload data to an Azure Operator Insights Data Product. For example:

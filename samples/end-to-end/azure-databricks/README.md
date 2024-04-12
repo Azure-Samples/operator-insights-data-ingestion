@@ -7,10 +7,10 @@ Azure Databricks provides a convenient solution for ingesting from a variety of 
 Using Databricks is recommended if:
 
 - The data source is supported by Azure Databricks
-  - For information about connecting to other supported data sources, see [Azure Databricks documentation/Connect to data sources (MS Learn)](https://learn.microsoft.com/en-us/azure/databricks/connect/)
+  - For information about connecting to other supported data sources, see [Connect to data sources in the Azure Databricks documentation](https://learn.microsoft.com/en-us/azure/databricks/connect/)
 - You require continuous ingestion
 - The data you would like to ingest contains a transaction log (E.g. Delta file format)
-  - In this scenario, your databricks ingestion workflow can convert to a file format that Azure Operator Insights supports
+  - In this scenario, your Databricks ingestion workflow must convert to a file format that Azure Operator Insights supports
 - You wish to apply transformations or filtering to your data before it is ingested to your Data Product
 
 ## Ingestion sample notebook
