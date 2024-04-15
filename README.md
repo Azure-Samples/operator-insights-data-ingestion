@@ -4,13 +4,16 @@ Code samples and guidance demonstrating how to ingest data into an [Azure Operat
 
 Azure Operator Insights offers a range of options for ingesting data into Data Products:
 
-- The [Azure Operator Insights Ingestion Agent](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-agent-overview), which runs on-premises or on an Azure VM. The agent can consume data from different sources and upload the data to an Azure Operator Insights Data Product. The agent currently supports ingestion by:
+- The [Azure Operator Insights ingestion agent](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-agent-overview), which runs on-premises or on an Azure VM. The agent can consume data from different sources and upload the data to an Azure Operator Insights Data Product. The agent currently supports ingestion by:
   - Pulling data from an SFTP server
   - Terminating a TCP stream of enhanced data records (EDRs) from the Affirmed MCC.
-- Other Azure services and tools. A variety of tools can be used to upload data to an Azure Operator Insights Data Product. For example:
-  - AzCopy is a simple tool for uploading batches of data from a variety of local or cloud storage locations.
-  - Azure Data Factory allows you to define more complicated pipelines to process the data before uploading to the Data Product.  (\<TODO insert Learn link when published>)
-- Build your own ingestion, using the code samples in this repository as a starting point.
+- Ingestion via other methods:
+  - Existing Microsoft or third-party tools which upload data to Azure. E.g. [AzCopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) or Azure Data Factory (\<TODO insert Learn link when published>).
+  - Custom code, e.g. using the Azure CLI or Azure SDK.
+
+The Azure Operator Insights ingestion agent is the recommended ingestion method for the use cases it supports.
+
+For other use cases, this repository provides samples of ingestion using common Microsoft tools or custom code.
 
 ## Getting Started
 
