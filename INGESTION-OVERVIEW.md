@@ -8,7 +8,7 @@ In this article:
   - [Plan how to access the source data](#plan-how-to-access-the-source-data)
   - [Determine requirements for uploaded data](#determine-requirements-for-uploaded-data)
   - [Implement the upload code](#implement-the-upload-code)
-  - [Handle SAS URL rotation](#handle-sas-url-rotation)
+  - [Handle SAS token rotation](#handle-sas-token-rotation)
   - [Test the ingestion solution](#test-the-ingestion-solution)
   - [Implement extra function](#implement-extra-function)
 - [Hints and tips](#hints-and-tips)
@@ -37,6 +37,8 @@ Check the documentation for your Data Product to find out which container names 
 
 If the ingestion solution does not meet these requirements, data won't be processed correctly by the Data Product.
 
+Data Products expose two ingestion endpoint variants: the blob storage endpoint and the data lake storage endpoint. You should choose the endpoint that best suits your ingestion method. See [Blob storage vs data lake ingestion endpoints](#blob-vs-dfs) for guidance.
+
 ### Implement the upload code
 
 Now you can write your end-to-end ingestion solution.
@@ -53,11 +55,11 @@ Ingestion solutions perform 5 main steps:
 
 Steps 1-3 are setup steps which can be carried out once, then the SAS token can be reused for as long as it is valid.
 
-### Handle SAS URL rotation
+### Handle SAS token rotation
 
 The SAS token can be used until it is revoked or its expiry date has passed. When the SAS token is rotated, the Data Product automatically updates the value of the `input-storage-sas` secret in the managed Key Vault.
 
-To ensure uninterrupted service, your ingestion solution should frequently retrieve the input-storage-sas secret from the managed Key Vault. This ensures it always uses the latest SAS token. For example, fetch the secret at the start of scheduled upload runs or hourly for continuous ingestion solutions. If an authentication error occurs, re-fetch the secret, as it may indicate the old SAS token has been revoked.
+To ensure uninterrupted service, your ingestion solution should frequently retrieve the `input-storage-sas` secret from the managed Key Vault. This ensures it always uses the latest SAS token. For example, fetch the secret at the start of scheduled upload runs or hourly for continuous ingestion solutions. If an authentication error occurs, re-fetch the secret, as it may indicate the old SAS token has been revoked.
 
 ### Test the ingestion solution
 
@@ -72,7 +74,7 @@ Once data has been successfully uploaded and processed, you can [explore the dat
 
 ### Implement extra function
 
-Once your basic ingestion solution is working, you can implement extra function to make it suitable for production use.
+Once your basic ingestion solution is working, implement any extra function you need to make it suitable for production use.
 
 For example:
 
@@ -87,7 +89,7 @@ For example:
 
 - **Directory depth:** When uploading data files, ensure they are at least two directories deep within the ingestion storage account. For example, if you're uploading a file called `mydata.csv`, place it in a path like `{directory-name}/{sub-directory-name}/mydata.csv`.
 
-- **Blob storage vs data lake ingestion endpoints:**
+- <a name="blob-vs-dfs"></a>**Blob storage vs data lake ingestion endpoints:**
   - You have two options for the Data Product ingestion URL: one for the blob storage endpoint (e.g. `https://aoiingestiondp123abc.blob.core.windows.net`), and one for the data lake storage endpoint (e.g. `https://aoiingestiondp123abc.dfs.core.windows.net`).
   - Choose the endpoint that best suits your ingestion method. For example, AzCopy can use the blob storage endpoint, but Azure Databricks requires the data lake endpoint. To obtain the data lake endpoint URL, simply replace `blob` in the ingestion URL with `dfs`.
   - Use the appropriate API calls for the endpoint you have chosen:

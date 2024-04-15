@@ -56,7 +56,7 @@ Most end-to-end samples follow three steps:
 2. Authenticate with the managed key vault and fetch the secret containing the ingestion SAS URL for the Data Product.
 3. Using the ingestion URL/storage account name and ingestion SAS token, upload data to the ingestion endpoint of the Data Product.
 
-### Sample snippets
+### Helper code snippets
 
 - Setup script: Use the Azure CLI to perform steps 1 and 2 above, saving the parameters as environment variables: [samples/snippets/az-cli-set-ingestion-params.sh](samples/snippets/az-cli-set-ingestion-params.sh)
 
