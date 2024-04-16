@@ -8,7 +8,7 @@ Azure Operator Insights offers a range of options for ingesting data into Data P
   - Pulling data from an SFTP server
   - Terminating a TCP stream of enhanced data records (EDRs) from the Affirmed MCC.
 - Ingestion via other methods:
-  - Existing Microsoft or third-party tools which upload data to Azure. E.g. [AzCopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) or Azure Data Factory (\<TODO insert Learn link when published>).
+  - Existing Microsoft or third-party tools which upload data to Azure. E.g. [AzCopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) or [Azure Data Factory](https://learn.microsoft.com/en-us/azure/operator-insights/ingestion-with-data-factory).
   - Custom code, e.g. using the Azure CLI or Azure SDK.
 
 The Azure Operator Insights ingestion agent is the recommended ingestion method for the use cases it supports.

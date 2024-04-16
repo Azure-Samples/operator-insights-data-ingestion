@@ -1,6 +1,6 @@
 # How to ingest data into an Azure Operator Insights Data Product
 
-Data ingestion - copying data from the place where is it generated to the ingestion endpoint of the Data Product - is crucial for any Data Product. Whether you’re dealing with real-time streams or batch uploads, a well-designed ingestion solution ensures smooth data flow. Understanding the steps involved in designing an ingestion solution will allow you to easily adapt the code samples in this repository, or build your own ingestion solution from scratch.
+Data ingestion - copying data to a Data Product's ingestion endpoint from the place where is it generated - is a crucial part of the [architecture of Azure Operator Insights](https://learn.microsoft.com/en-gb/azure/operator-insights/architecture). Whether you’re dealing with real-time streams or batch uploads, a well-designed ingestion solution ensures smooth data flow. Understanding the steps involved in designing an ingestion solution will allow you to easily adapt the code samples in this repository, or build your own ingestion solution from scratch.
 
 In this article:
 
