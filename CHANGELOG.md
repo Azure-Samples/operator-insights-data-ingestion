@@ -1,13 +1,6 @@
-## [project-title] Changelog
+# Azure Operator Insights Data Ingestion Samples Changelog
 
-<a name="x.y.z"></a>
-# x.y.z (yyyy-mm-dd)
+## Unreleased
 
-*Features*
-* ...
-
-*Bug Fixes*
-* ...
-
-*Breaking Changes*
-* ...
+### Features
+* Initial guidance and samples
