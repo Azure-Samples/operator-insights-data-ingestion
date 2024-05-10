@@ -55,6 +55,11 @@ Ingestion solutions perform 5 main steps:
 
 Steps 1-3 are setup steps which can be carried out once, then the SAS token can be reused for as long as it is valid.
 
+> [!Caution]
+> As mentioned in [Hints and tips](#hints-and-tips), Data Products do not support the modification of files after upload. Some upload methods work by creating a file, then adding content to it. The [Azure functions output bindings](/azure/azure-functions/functions-bindings-storage-blob-output) is one of these methods, which should not be used. Please use the Azure storage [SDK](/dotnet/api/azure.storage.blobs) or [CLI](/cli/azure/storage/blob) instead.
+> 
+> To make sure your upload code does not hit these issues, ensure the `Ingestion` logs in [Test the ingestion solution](#test-the-ingestion-solution) only show a single event for each file
+
 ### Handle SAS token rotation
 
 The SAS token can be used until it is revoked or its expiry date has passed. When the SAS token is rotated, the Data Product automatically updates the value of the `input-storage-sas` secret in the managed Key Vault.
